@@ -30,23 +30,11 @@ const images = [
 
 const el = document.querySelector(".gallery");
 
-const img1 = document.createElement('img');
-img1.src = images[0].url;                     
-img1.alt = images[0].alt;                     
-const img2 = document.createElement('img');
-img2.src = images[1].url;                     
-img2.alt = images[1].alt;                     
-const img3 = document.createElement('img');
-img3.src = images[2].url;                     
-img3.alt = images[2].alt;                     
-const img4 = document.createElement('img');
-img4.src = images[3].url;                     
-img4.alt = images[3].alt;                     
-const img5 = document.createElement('img');
-img5.src = images[4].url;                     
-img5.alt = images[4].alt;  
-const img6 = document.createElement('img');
-img6.src = images[5].url;                     
-img6.alt = images[5].alt;  
-
-el.append(img1, img2, img3, img4, img5, img6);
+images.forEach(image => {
+  const img = document.createElement("img");
+  const li = document.createElement("li");
+  img.src = image.url;
+  img.alt = image.alt;
+  li.appendChild(img);
+  el.appendChild(li);
+});

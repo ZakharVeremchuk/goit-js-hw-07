@@ -1,14 +1,15 @@
 
   const el = document.querySelectorAll("#categories .item");
-  console.log(`Number of categories {el.length}`);
+  console.log(`Number of categories ${el.length}`);
 
-  const list = document.querySelector("#categories").children
+  const listItems = document.querySelectorAll("#categories > li.item");
 
-  for (let i = 0; i < list.length; i++) {
-    const listItem = list[i];
-    const titleElement = listItem.querySelector("h2");
-    if (titleElement) {
-      console.log(`Category: ${titleElement.textContent}`);
-      console.log(`Elements: ${listItem.querySelector("ul").children.length}`);
+  listItems.forEach(listItem => {
+    const titleElements = listItem.querySelectorAll("h2");
+    const listElements = listItem.querySelectorAll("ul");
+  
+    if (titleElements.length > 0 && listElements.length > 0) {
+      console.log(`Category: ${titleElements[0].textContent}`);
+      console.log(`Elements: ${listElements[0].children.length}`);
     }
-  }
+  });
